@@ -6,10 +6,18 @@ var config = {
     backgroundColor: "000000",
     // specify the scenes
     scene: [Scene1, Scene2],
+
     // enabled our game to support arcade physics
-    physics:{
+    /**
+     * having a physics engine is necessary to simulate 
+     * gravity, velocity, collision, etc.
+     * 
+     * in this we are using Arcade Physics which is extremely light-weighted
+     * 
+     */
+    physics: {
         default: "arcade",
-        arcade:{
+        arcade: {
             debug: false
         }
     }
