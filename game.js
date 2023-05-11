@@ -1,8 +1,8 @@
 // basic characteristics of a game, as are the dimension or the background color
 var config = {
     type: Phaser.AUTO,
-    width: 640,
-    height: 360,
+    width: 256,
+    height: 272,
     backgroundColor: "000000",
     // specify the scenes
     scene: [Scene1,Scene2]
@@ -32,8 +32,10 @@ var game = new Phaser.Game(config);
 
 // # Flow of Scene control 
 /**
- * INIT() => 1st the Init funcation which is user to prepare data
- * PREALOAD() => then there's the preload funaction user to load the music and images into memory
+ * INIT() => 1st the Init funcation which is use to prepare data
+ * PREALOAD() => then there's the preload funaction use to load the music and images into memory
  * CREATE() => is used to add the objects to the game
  * UPDATE() => which is a loop that runs constantly
  */
+
+
