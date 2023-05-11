@@ -5,11 +5,11 @@ var config = {
     height: 272,
     backgroundColor: "000000",
     // specify the scenes
-    scene: [Scene1,Scene2]
+    scene: [Scene1, Scene2]
 }
 // create new instance of phaser game
 var game = new Phaser.Game(config);
-// we need web server => this will allow the Js files to access your 
+// we need web server => this will allow the Js files to access your
 // computer files such as images and sounds that will need later on.
 // for windowa => wampserver.com | macos => mamp.info
 
@@ -21,7 +21,7 @@ var game = new Phaser.Game(config);
  * scenes are the places where the elements of the game live in
  * In Phaser 3 yout can create as many scenes as you want,
  * and yout can create the dynamically at any time
- * 
+ *
  * you can hvae several scenes running at the same time in same game
  * for example a scene can be the title screen for the game
  * have another for game and another for the world map
