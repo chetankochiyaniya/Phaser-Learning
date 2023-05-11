@@ -5,7 +5,14 @@ var config = {
     height: 272,
     backgroundColor: "000000",
     // specify the scenes
-    scene: [Scene1, Scene2]
+    scene: [Scene1, Scene2],
+    // enabled our game to support arcade physics
+    physics:{
+        default: "arcade",
+        arcade:{
+            debug: false
+        }
+    }
 }
 // create new instance of phaser game
 var game = new Phaser.Game(config);

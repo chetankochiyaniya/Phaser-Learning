@@ -103,7 +103,52 @@ class Scene2 extends Phaser.Scene {
         this.input.on("gameobjectdown", this.destroyShip, this)
 
         this.add.text(20, 20, "Playing game", { font: "25px Arial", fill: "yellow" })
+
+
+        this.anims.create({
+            key:"red",
+            frames: this.anims.generateFrameNumbers("power-up",{
+                start:0, 
+                end: 1
+            }),
+            frameRate: 20,
+            repeat: -1
+        })
+        this.anims.create({
+            key:"gray",
+            frames: this.anims.generateFrameNumbers("power-up",{
+                start:2, 
+                end: 3
+            }),
+            frameRate: 20,
+            repeat: -1
+        })
+        // put all objects in group
+        this.powerUps = this.physics.add.group()
+
+        // numbers of power ups we want
+        var maxObjects = 4
+        for (var i=0; i<=maxObjects; i++){
+            var powerUp = this.physics.add.sprite(16, 16, "power-up")
+            // add them to the group "powerups"
+            this.powerUps.add(powerUp)
+            powerUp.setRandomPosition(0, 0, game.config.width, game.config.height)
+            
+            // 50-50 chance to play either red or gray animation
+            if(Math.random()>0.5){
+                powerUp.play("red")
+            }else{
+                powerUp.play("gray")
+            }
+            // set velocity
+            powerUp.setVelocity(100,100)
+            //objects will collide with the boundaries of the "world(box)"
+            powerUp.setCollideWorldBounds(true)
+            // bounce like rubber ball
+            powerUp.setBounce(1)
+        }
     }
+
 
     /** 
     * the 1st thing we are going to do is , move the ship on the vertical axis by inscreasing its Y value
@@ -148,3 +193,10 @@ class Scene2 extends Phaser.Scene {
 }
 
 
+/**
+ * having a physics engine is necessary to simulate 
+ * gravity, velocity, collision, etc.
+ * 
+ * in this we are using Arcade Physics which is extremely light-weighted
+ * 
+ */
