@@ -13,6 +13,7 @@ class Scene2 extends Phaser.Scene {
         // setting a class varibale for the background named this.background 
         // so we can access its properties at anytime inside this class
         this.background = this.add.image(0, 0, "background")
+
         // setting origin at 0,0 (beacuse i want it's pivot (Gujarati->dhari) to be int the top left of the image instead of the center)
         // if you want in center than use position as 100,100
         this.background.setOrigin(0, 0)
