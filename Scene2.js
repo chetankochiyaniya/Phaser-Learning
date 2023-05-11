@@ -12,7 +12,14 @@ class Scene2 extends Phaser.Scene {
          */
         // setting a class varibale for the background named this.background 
         // so we can access its properties at anytime inside this class
-        this.background = this.add.image(0, 0, "background")
+        /**
+         * make background scroll to make it more appealing
+         * we are changing the definintion of the background from image to TileSprite
+         * A TileSprite => is a sprite that has a repeating texture => insted of moving image we will move the texture if the image
+         * this.background = this.add.image(0, 0, "background") => this.background = this.add.tileSprite(0,0,config.width, config.height,"background")
+        */
+         this.background = this.add.tileSprite(0,0,config.width, config.height,"background")
+
         // setting origin at 0,0 (beacuse i want it's pivot (Gujarati->dhari) to be int the top left of the image instead of the center)
         // if you want in center than use position as 100,100
         this.background.setOrigin(0, 0)
@@ -61,6 +68,9 @@ class Scene2 extends Phaser.Scene {
         this.moveShip(this.ship1, 1)
         this.moveShip(this.ship2, 2)
         this.moveShip(this.ship3, 3)
+
+        // secrease the position of the texture of the background
+        this.background.tilePositionY -=0.5
     }
 
 
